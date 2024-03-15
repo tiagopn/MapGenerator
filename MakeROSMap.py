@@ -94,7 +94,8 @@ def draw_point(event,x,y,flags,param):
            prompt = '>'
            print ("What is the name of the new map?" )
            mapName = input(prompt)
-           cv2.imwrite(mapName + ".pgm", res );
+           res = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY) 
+           cv2.imwrite(mapName + ".pgm", res )
            cv2.imshow("Image2", res)
            
            prompt = '> '
@@ -104,7 +105,7 @@ def draw_point(event,x,y,flags,param):
            completeFileNameMap = os.path.join(mapLocation, mapName +".pgm")
            completeFileNameYaml = os.path.join(mapLocation, mapName +".yaml")
            yaml = open(completeFileNameYaml, "w")
-           cv2.imwrite(completeFileNameMap, res );
+           cv2.imwrite(completeFileNameMap, res )
            #
            # Write some information into the file
            #
